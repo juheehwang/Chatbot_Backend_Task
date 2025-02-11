@@ -32,7 +32,8 @@ dependencies {
 	implementation("io.jsonwebtoken:jjwt:0.12.3") // JWT 라이브러리
 	implementation("org.springframework.boot:spring-boot-starter-validation") // 입력 검증
 	implementation("org.springframework.boot:spring-boot-starter-json")
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+	implementation 'com.opencsv:opencsv:5.10'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 	// BCrypt 비밀번호 암호화
 	implementation("org.springframework.security:spring-security-crypto")
 	runtimeOnly 'org.postgresql:postgresql'
