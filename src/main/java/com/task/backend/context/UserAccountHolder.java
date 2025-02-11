@@ -31,6 +31,11 @@ public class UserAccountHolder {
         return get().getSeq();
     }
 
+    /**
+     * 테스트시 필요하여 임시로 넣었음
+     * @param defaultValue
+     * @return
+     */
     public static Long getIdOrDefault(final Long defaultValue) {
         try {
             return getId();

@@ -17,6 +17,11 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final JwtUtil jwtUtil;
 
+    /**
+     * 맴버 등록
+     * @param memberRequestDto
+     * @return
+     */
     public String register(MemberRequestDto memberRequestDto) {
         if (memberRepository.findByEmail(memberRequestDto.email()).isPresent()) {
             throw new IllegalArgumentException("이미 사용 중인 이메일입니다.");
@@ -27,6 +32,11 @@ public class MemberService {
 
     }
 
+    /**
+     * 로그인
+     * @param memberRequestDto
+     * @return
+     */
     public String login(MemberRequestDto memberRequestDto) {
         Member user = memberRepository.findByEmail(memberRequestDto.email())
             .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 이메일 또는 비밀번호입니다."));
