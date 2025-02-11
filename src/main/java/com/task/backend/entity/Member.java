@@ -1,5 +1,6 @@
 package com.task.backend.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -7,8 +8,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -47,6 +50,10 @@ public class Member implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "member", orphanRemoval = true)
+    private List<Chat> chatList = new ArrayList<>();
+
+
     public enum Role {
         MEMBER, ADMIN
     }
@@ -60,6 +67,7 @@ public class Member implements UserDetails {
     public String getUsername() {
         return email;
     }
+
 
     @Builder
     public Member(

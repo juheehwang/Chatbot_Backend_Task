@@ -15,6 +15,10 @@ spring:
         format_sql: true
         show_sql: true
 
+openapi:
+  secret-key: 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
+  url: https://api.openai.com/v1/chat/completions
+
 jwt:
   secret: JWI64WV7ZWY7IS47JqUIOyggOuKlCDsp4DquIggand0IOqzteu2gOykkeyeheuLiOuLpA==
   expiration: 3600000
