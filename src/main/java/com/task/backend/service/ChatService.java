@@ -30,7 +30,7 @@ public class ChatService {
     private final ChatGPTConfig chatGPTConfig;
 
     public Map<String, Object> prompt(String question) throws IOException, InterruptedException {
-        log.debug("[+] 프롬프트를 수행합니다.");
+        log.info("[+] 프롬프트를 수행합니다.");
 
         ObjectMapper mapper = new ObjectMapper();
         String input = mapper.writeValueAsString(CompletionRequestDto.of("gpt-3.5-turbo",question,1L));
@@ -46,7 +46,7 @@ public class ChatService {
         var response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         if (response.statusCode() == 200) {
-            log.debug("result ======= {}",response.body());
+            log.info("result ======= {}",response.body());
 
             }
         return Map.of();
