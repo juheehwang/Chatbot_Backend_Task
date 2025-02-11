@@ -9,3 +9,5 @@ docker logs -f spring-app
 
 # 4. 종료
 docker-compose down
+
+# 5. postman에서 회원가입부터 순서대로 진행
